@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spacebar Counter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div id="sb-tool">
+
+  <h1>Spacebar Counter</h1>
+  <p class="sb-subtitle">How fast can you press the spacebar?</p>
+
+  <div class="sb-card">
+
+    <!-- Time selector -->
+    <div class="sb-time-row" id="sb-timeRow">
+      <button class="sb-time-btn" data-time="1">1s</button>
+      <button class="sb-time-btn" data-time="2">2s</button>
+      <button class="sb-time-btn" data-time="5">5s</button>
+      <button class="sb-time-btn active" data-time="10">10s</button>
+      <button class="sb-time-btn" data-time="15">15s</button>
+      <button class="sb-time-btn" data-time="30">30s</button>
+      <button class="sb-time-btn" data-time="60">60s</button>
+      <button class="sb-time-btn" data-time="100">100s</button>
+      <button class="sb-time-btn" data-time="120">120s</button>
+    </div>
+
+    <!-- Press zone -->
+    <div class="sb-press-area" id="sb-pressArea" tabindex="0">
+      <div class="sb-ripple-c" id="sb-rippleC"></div>
+      <div class="sb-space-icon" id="sb-spaceIcon">⎵</div>
+      <div class="sb-press-label" id="sb-label">Click here or press <strong>Spacebar</strong> to start!</div>
+      <div class="sb-prog-wrap" id="sb-progWrap">
+        <div class="sb-prog-inner" id="sb-progBar"></div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="sb-stats">
+      <div class="sb-stat-box" id="sb-countBox">
+        <div class="sb-stat-val acc" id="sb-countVal">0</div>
+        <div class="sb-stat-lbl">Presses</div>
+      </div>
+      <div class="sb-stat-box">
+        <div class="sb-timer-wrap">
+          <svg class="sb-timer-ring" width="62" height="62">
+            <circle class="bg" cx="31" cy="31" r="25" stroke-width="4" />
+            <circle class="prg" cx="31" cy="31" r="25" stroke-width="4" id="sb-arc" stroke-dasharray="157.08"
+              stroke-dashoffset="0" />
+          </svg>
+          <span class="sb-timer-txt" id="sb-timerTxt">–</span>
+        </div>
+        <div class="sb-stat-lbl">Time Left</div>
+      </div>
+      <div class="sb-stat-box">
+        <div class="sb-stat-val grn" id="sb-spsVal">0.0</div>
+        <div class="sb-stat-lbl">Per Sec</div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="sb-result" id="sb-result">
+      <div class="sb-animal-emoji" id="sb-emoji">🐢</div>
+      <div class="sb-result-title">Your Score</div>
+      <div class="sb-result-score" id="sb-score">0</div>
+      <div class="sb-result-desc" id="sb-desc"></div>
+      <div class="sb-animal-lbl" id="sb-animalLbl">–</div>
+      <div class="sb-animal-flavor" id="sb-flavor"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="sb-btn-row">
+      <button class="sb-btn sb-btn-primary" id="sb-resetBtn">🔄 Reset</button>
+      <button class="sb-btn sb-btn-outline" id="sb-shareBtn">Share Result</button>
+    </div>
+
+    <!-- History accordion -->
+    <div class="sb-accordion" id="sb-accordion">
+      <div class="sb-acc-header" id="sb-accHeader">
+        <div class="sb-acc-title">
+          📋 Previous Records
+          <span class="sb-acc-badge" id="sb-badge">0</span>
+        </div>
+        <span class="sb-acc-arrow">▼</span>
+      </div>
+      <div class="sb-acc-body">
+        <div class="sb-hist-wrap">
+          <div class="sb-empty-hist" id="sb-emptyHist">No records yet. Complete a test to see your history!</div>
+          <table class="sb-hist-table" id="sb-histTable" style="display:none">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date &amp; Time</th>
+                <th>Mode</th>
+                <th>HPS</th>
+                <th>Presses</th>
+              </tr>
+            </thead>
+            <tbody id="sb-histBody"></tbody>
+          </table>
+        </div>
+        <div class="sb-clear-row">
+          <button class="sb-btn-clear" id="sb-clearBtn">🗑 Clear History</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="sb-mobile-note">💡 On mobile, tap the zone above rapidly to register presses</p>
+  </div><!-- /sb-card -->
+
+  <!-- Info -->
+  <div class="sb-info-section">
+    <div class="sb-info-card">
+      <p>Pick a time limit, click the zone or press <strong>Spacebar</strong>, and smash as fast as you can. Your score, speed, and animal equivalent appear when time is up. <br><br> 🐢 Turtle (&lt;3/s) &nbsp;→&nbsp; 🐌 Snail (3–4/s) &nbsp;→&nbsp; 🐇 Rabbit (4–6/s) &nbsp;→&nbsp; 🐆 Cheetah (6–8/s) &nbsp;→&nbsp; 🦅 Eagle (8–10/s) &nbsp;→&nbsp; ⚡ Lightning (10–12/s) &nbsp;→&nbsp; 🚀 Rocket (&gt;12/s)</p>
+    </div>
+  </div>
+
+</div><!-- /sb-tool -->
+
+<script src="popup.js"></script>
+</body>
+</html>
